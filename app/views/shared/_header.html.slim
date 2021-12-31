@@ -1,16 +1,20 @@
-.login-register-form
-  .login-register-form-inner
-    .card.mb-3
-      = form_with url: login_path, class: 'card-body', local: true do |f|
-        .form-group
-          = f.label :email, 'メールアドレス', class: 'bmd-label-floating'
-          = f.email_field :email, class: 'form-control'
-        .form-group
-          = f.label :password, 'パスワード', class: 'bmd-label-floating'
-          = f.password_field :password, class: 'form-control'
-
-        = f.submit 'ログイン', class: 'btn btn-raised btn-primary'
-    .card
-      .card-body
-        | アカウントをお持ちでないですか？
-        = link_to '登録する', new_user_path
+nav.navbar.navbar-expand-lg.navbar-light.bg-white
+  = link_to 'InstaClone', root_path, class: 'navbar-brand'
+  button.navbar-toggler aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarTogglerDemo02" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarTogglerDemo02.collapse.navbar-collapse
+    form.form-inline.my-2.my-lg-0.mr-auto
+      input.form-control.mr-sm-2 placeholder="Search" type="search" /
+      button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
+    ul.navbar-nav.mt-2.mt-lg-0
+      li.nav-item
+        a.nav-link href="#"
+          = icon 'far', 'image', class: 'fa-lg'
+      li.nav-item
+        a.nav-link href="#"
+          = icon 'far', 'heart', class: 'fa-lg'
+      li.nav-item
+        a.nav-link href="#"
+          = icon 'far', 'user', class: 'fa-lg'
+      li.nav-item
+        = link_to 'ログアウト', logout_path, class: 'nav-link', method: :delete
