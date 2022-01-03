@@ -48,6 +48,7 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'html2slim'
+  gem 'faker'
 end
 
 group :test do
