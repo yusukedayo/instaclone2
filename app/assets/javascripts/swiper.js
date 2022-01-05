@@ -1,6 +1,6 @@
 $(function() {
     new Swiper('.swiper-container', {
-        effect: 'flip',
+        effect: 'fade',
         grabCursor: true,
         pagination: {
             el: '.swiper-pagination',

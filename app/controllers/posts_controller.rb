@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
   def index
     @posts = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
