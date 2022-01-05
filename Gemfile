@@ -48,6 +48,7 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'html2slim'
+  gem 'faker'
 end
 
 group :test do
@@ -68,3 +69,4 @@ gem 'rails-i18n', '~> 5.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'jquery-rails'
 gem 'popper_js'
+gem 'carrierwave', '~> 2.0'
