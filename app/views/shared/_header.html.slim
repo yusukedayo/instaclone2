@@ -18,3 +18,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
           = icon 'far', 'user', class: 'fa-lg'
       li.nav-item
         = link_to 'ログアウト', logout_path, class: 'nav-link', method: :delete
+      li.nav-item
+        = link_to '新規投稿', new_post_path

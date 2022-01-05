@@ -13,8 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_url, success: '投稿しました'
       # _urlは何を作っているのか
@@ -37,15 +36,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def destory
-    @post.destory!
+  def destroy
+    @post.destroy!
     redirect_to posts_url, success: '投稿を削除しました'
   end
 
   private
 
-  def post_params 
-    params.require(:post).permit(:avatar, :body)
+  def post_params
+    params.require(:post).permit(:body, images: [])
   end
 
   def set_post

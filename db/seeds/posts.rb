@@ -1,6 +1,5 @@
-User.all.each do |user|
-    user.posts.create!(
-        body: Faker::JapaneseMedia::Doraemon.gadget,
-        avatar: Faker::JapaneseMedia::Doraemon.gadget
-    )
+puts 'Start inserting seed "posts" ...'
+User.limit(10).each do |user|
+  post = user.posts.create(body: Faker::Hacker.say_something_smart, remote_images_urls: %w[https://picsum.photos/350/350/?random https://picsum.photos/350/350/?random])
+  puts "post#{post.id} has created!"
 end
