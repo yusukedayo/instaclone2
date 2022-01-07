@@ -7,6 +7,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.coments.includes(:user).order(created_at: :desc)
+    # この投稿についている全てのコメントを取得している。
+    # N+1問題を避けるためにincludesメソッドが使われている。
+    @comment = Comment.new
+    # 投稿フォールにモデルの情報を渡すためにインスタンス変数に代入している。
   end
 
   def new

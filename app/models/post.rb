@@ -24,4 +24,6 @@ class Post < ApplicationRecord
     validates :body, presence: true, length: { maximum: 1000 }
 
     belongs_to :user
+    has_many :comments, dependent: :destroy
+    # オブジェクトが削除されるときに、関連付けられたオブジェクトのdestroyメソッドが実行されます。
 end
