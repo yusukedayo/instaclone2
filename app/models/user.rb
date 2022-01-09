@@ -27,6 +27,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   # オブジェクトが削除されるときに、関連付けられたオブジェクトのdestroyメソッドが実行されます。
 
+  has_many :likes
+  has_many :like_posts, through: :likes, source: :post
+  # ユーザーがいいねしている投稿を取得できるメソッド。中間テーブルのlikesテーブルを経由してpostsテーブルを参照する。user_idと対になってるpost_idの投稿を取ってくる。
+  
   def own?(object)
     id == object.user_id
   end
