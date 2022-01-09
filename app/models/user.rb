@@ -34,4 +34,22 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  def like(post)
+    # いいねを追加するメソッド。
+    # <<は指定された obj を自身の末尾に破壊的に追加している。引数のpostが新しくlike_postsに追加されている。
+    like_posts << post
+  end
+  
+  def unlike(post)
+    # いいねを削除するメソッド。
+    # like_postsの中から引数のpostをdestroyしている。
+    like_posts.destroy(post)
+  end
+  
+  def like?(post)
+    # いいねしているかどうかを確認するメソッド。
+    # like_postsの中に引数==な関係のよそがあればtrueを返す。
+    like_posts.include?(post)
+  end
 end
