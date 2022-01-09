@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     before_action :require_login, only: %i[create edit update destroy]
 
     def create
-        @comment = current_user.comments.build(coment_params)
+        @comment = current_user.comments.build(comment_params)
         # Userと関連付けたインスタントを生成。buildは関連付けされていることを明示してる。
         @comment.save
         # ユーザーによるbodyカラムが空で送信されるミスが想定されるのでsave!ではなくsaveメソッドを使用。
