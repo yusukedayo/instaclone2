@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   root 'posts#index'
 
   get 'login', to: 'user_sessions#new'
