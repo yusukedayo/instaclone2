@@ -30,4 +30,8 @@ class Post < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :like_users, through: :likes, source: :user
     # 投稿にいいねしたユーザーを取得できるメソッド。中間テーブルのlikesテーブルを経由してusersテーブルを参照する。post_idと対になってるuser_idの投稿を取ってくる。
+
+    scope :body_contain, ->(word) { where('posts.body LIKE ?', "%#{word}%") }
+    scope :comment_body_contain, ->(word) { joins(:comments).where('comments.body LIKE ?', "%#{word}%") }
+    scope :username_contain, ->(word) { joins(:user).where('username LIKE ?', "%#{word}%") }
 end
